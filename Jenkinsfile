@@ -15,6 +15,12 @@ pipeline {
             }
         }
 
+        stage ('python check') {
+            steps{
+                bat 'where python'
+            }
+        }
+
         stage ('Run test'){
             steps{
                 bat 'pytest test_calculator.py --html=report.html --self-contained-html'
