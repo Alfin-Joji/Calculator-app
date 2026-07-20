@@ -23,7 +23,7 @@ pipeline {
 
         stage ('Archive Report'){
             steps{
-                archiveArtifacts artifact: 'report.html', fingerprint: true
+                archiveArtifacts artifacts: 'report.html', fingerprint: true
             }
         }
     }
