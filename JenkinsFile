@@ -1,21 +1,23 @@
 pipeline {
     agent any
-    stages{
 
-        stage ('Checkout'){
-        steps{
-            checkout scm
+    stages {
+
+        stage ('Checkout') {
+            steps{
+                checkout scm
+            }
         }
 
-        stage ('Install dependencies'){
+        stage ('Install dependencies') {
             steps{
-                sh 'pip install -r requirement.txt'
+                bat 'pip install -r requirement.txt'
             }
         }
 
         stage ('Run test'){
             steps{
-                sh 'pytest test_calculator.py --html=report.html --self-contained-html'
+                bat 'pytest test_calculator.py --html=report.html --self-contained-html'
             }
         }
 
@@ -24,6 +26,5 @@ pipeline {
                 archiveArtifacts artifact: 'report.html', fingerprint: true
             }
         }
-    }
     }
 }
