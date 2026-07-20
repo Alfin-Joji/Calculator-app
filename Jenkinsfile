@@ -24,7 +24,7 @@ pipeline {
         
         stage ('Run test'){
             steps{
-                bat 'pytest test_calculator.py --html=report.html --self-contained-html'
+                bat 'python -m pytest test_calculator.py --html=report.html --self-contained-html'
             }
         }
 
